@@ -15,7 +15,7 @@ public class project_locator_xpath {
 
         WebDriver webDriver = new ChromeDriver(chromeOptions);
 
-        webDriver.get();
+      //  webDriver.get();
 
 
 

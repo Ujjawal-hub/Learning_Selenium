@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class svg_example_1 {
@@ -24,6 +25,12 @@ public class svg_example_1 {
 
 
        WebElement search_icon = driver.findElement(By.xpath("//*[local-name()=\"svg\"]"));
+
+       search_icon.click();
+
+        Assert.assertEquals(driver.getCurrentUrl(),"https://www.flipkart.com/search?q=iphone&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off");
+
+        driver.quit();
 
 
     }

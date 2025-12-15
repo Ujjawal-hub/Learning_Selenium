@@ -6,8 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.List;
 
 public class svg_example_2 {
@@ -21,11 +25,10 @@ public class svg_example_2 {
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://www.amcharts.com/svg-maps/?map=india");
 
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3) );
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[local-name()=\"svg\"]/*[name()=\"g\"][7]/*[name()=\"g\"]/*[name()=\"g\"]//*[name()=\"path\"][@aria-label=\"Tripura  \"]")));
+
 
         WebElement tripura =  driver.findElement(By.xpath("//*[local-name()=\"svg\"]/*[name()=\"g\"][7]/*[name()=\"g\"]/*[name()=\"g\"]//*[name()=\"path\"][@aria-label=\"Tripura  \"]"));
 
